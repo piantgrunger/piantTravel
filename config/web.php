@@ -13,10 +13,15 @@ $config = [
      'class' => '\hscstudio\mimin\components\AccessControl',
      'allowActions' => [
         // add wildcard allowed action here!
+         /*
         'site/*',
+           
+          */
+         'site/captcha',
         'debug/*',
         'mimin/*', // only in dev mode
     ],
+     
 ],
     
     

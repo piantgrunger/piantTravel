@@ -42,22 +42,35 @@ $fieldOptions2 = [
         <div class="row">
             <div class="col-xs-8">
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
-     </div>
-            <!-- /.col -->
-            
-  
-            <div class="col-xs-8">
+    
               <?= $form->field($model, 'verifyCode')->widget(Captcha::className())->label(false) ?>
                        </div>
-            <div class="col-xs-8">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
-            </div>
-            <!-- /.col -->
-        </div>
+        
+</div>
+        <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
 
-
+  
+   
+     
         <?php ActiveForm::end(); ?>
+       
 
     </div>
     <!-- /.login-box-body -->
+    <div class="footer">
+  <div class="container">
+     <div class="row">
+      <div class="col-xs-4 col-md-4 text-center">
+          <p></p>
+          <p class="footer">2017 App Version Developed by :</p>
+          <p> <?php echo Html::img('@web/logo.png') ?></p>
+      </div>
+    
+    </div>
+  </div>
+   </div>     
+           
+
 </div><!-- /.login-box -->
+
+         
