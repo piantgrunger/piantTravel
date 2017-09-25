@@ -14,6 +14,7 @@ use app\models\SignupForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use app\models\Setting;
+use app\models\kendaraan;
 
 class SiteController extends Controller
 {
@@ -74,9 +75,10 @@ class SiteController extends Controller
     {
     
          $modelSetting =  Setting::findOne(1);
+         $Jmlkendaraanready = kendaraan::find()->where("status='Ready'")->count();
           
           $model = new LoginForm();
-        return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting]);
+        return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting,'Jmlkendaraanready'=>$Jmlkendaraanready]);
     }
 
     /**

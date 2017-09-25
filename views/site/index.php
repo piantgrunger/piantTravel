@@ -1,4 +1,7 @@
+
 <?php
+use hscstudio\mimin\components\Mimin;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 
@@ -12,6 +15,20 @@
 
         <div class="row">
          <div class="col-md-6">
+             <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?=$Jmlkendaraanready;?></h3>
+
+              <p>Kendaraan Ready</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-car"></i>
+            </div>
+            <?php if ((Mimin::checkRoute("/kendaraan/"))){ ?>         
+         <?=Html::a(Yii::t('app', 'Daftar Kendaraan'), ['/kendaraan/'], ['class' => 'small-box-footer']) ?> 
+                 
+                 <?php }?>
+          </div>
               
             </div>
             <div class="col-md-6">
@@ -28,7 +45,7 @@
           </div>
             
                     
-                <div class="panel box box-success">
+             <div class="panel box box-success">
             <div class="box-header with-border">
               <i class="fa fa-car"></i>
 

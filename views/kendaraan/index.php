@@ -15,7 +15,7 @@ $gridColumns=[['class' => 'yii\grid\SerialColumn'],
             // 'pabrikan_kendaraan',
             // 'pemilik_kendaraan',
             // 'kapasitas_penumpang',
-            // 'status',
+             'status',
             // 'ket:ntext',
             // 'created_at',
             // 'updated_at',
@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p> <?php if ((Mimin::checkRoute($this->context->id."/create"))){ ?>        <?=  Html::a(Yii::t('app', 'Kendaraan  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
+    <p> <?php if ((Mimin::checkRoute($this->context->id."/create"))){ ?>        <?= 
+        Html::a(Yii::t('app', 'Kendaraan  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
     <?php } ?>    </p>
 
     <?= GridView::widget([

@@ -3,7 +3,7 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/svg', 'href' => '/favicon.svg']);
 if ($this->title == "")
 { 
     $this->title ='E-Travel';
