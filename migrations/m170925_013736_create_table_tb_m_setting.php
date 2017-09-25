@@ -11,7 +11,13 @@ class m170925_013736_create_table_tb_m_setting extends Migration
             'id_setting' => $this->primaryKey(),   
             'nama_perusahaan' => $this->string(50)->notNull(),
             'alamat_perusahaan' => $this->text()->notNull(),
+            'telp_perusahaan1' => $this->string(50),
+            'telp_perusahaan2' => $this->string(50),
+            'email_perusahaan' => $this->string(50),
+            'website_perusahaan' => $this->string(50),
+           
             'logo_perusahaan' => $this->string(50),
+            
             
             'ket' => $this->text(),
             'created_at'=>$this->datetime(),
@@ -24,8 +30,7 @@ class m170925_013736_create_table_tb_m_setting extends Migration
             'alamat_perusahaan' => 'Jl Jawa 12 Surabaya',
             
             'ket' => '',
-            'created_at'=> date('Y-m-d hh:nn'),
-            'updated_at'=> date('Y-m-d hh:nn'),
+          
             
             
         ]);
