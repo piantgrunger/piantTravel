@@ -4,6 +4,11 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+if ($this->title == "")
+{ 
+    $this->title ='E-Travel';
+}        
+    
 
 dmstr\web\AdminLteAsset::register($this);
 ?>

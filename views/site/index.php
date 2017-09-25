@@ -16,17 +16,18 @@
             </div>
             <div class="col-md-6">
             
-                    <div class="box box-solid">
+                    <div class="panel box box-primary">
         
             <!-- /.box-header -->
             <div class="box-body">
-             <i class="fa fa-calendar"></i>
+             
 
-              <h3 class="box-title center"><?=Yii::$app->formatter->asDate('now', 'dd MMMM yyyy');?></h3>     
+              <h3 class="box-title center"><i class="fa fa-calendar"> </i>  <?=Yii::t('app',Yii::$app->formatter->asDate('now', ' dd MMMM yyyy'));?></h3>     
             </div>
             <!-- /.box-body -->
           </div>
-                
+            
+                    
                 <div class="box box-solid">
             <div class="box-header with-border">
               <i class="fa fa-car"></i>
