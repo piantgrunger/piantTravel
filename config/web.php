@@ -6,7 +6,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'Template',
-    'name' => 'Application',
+    'name' => 'E-Rental',
     // set target language to be Indonesia
   'language' => 'id-ID',
     'as access' => [

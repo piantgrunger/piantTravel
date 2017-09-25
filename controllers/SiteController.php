@@ -13,6 +13,7 @@ use app\models\ResetPasswordForm;
 use app\models\SignupForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use app\models\Setting;
 
 class SiteController extends Controller
 {
@@ -71,9 +72,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
+    
+         $modelSetting =  Setting::findOne(1);
+          
           $model = new LoginForm();
-        return $this->render('index',['model'=>$model]);
+        return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting]);
     }
 
     /**

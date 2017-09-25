@@ -3,15 +3,16 @@ use hscstudio\mimin\components\Mimin;
 $menuItems =
         [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii/'],'visible' => !Yii::$app->user->isGuest],
+                  ['label' => 'Setting', 'icon' => 'dashboard', 'url' => ['/setting/'],'visible' => !Yii::$app->user->isGuest],
                     [
                         'visible' => !Yii::$app->user->isGuest,
-                        'label' => 'Manajemen User / Group',
-                        'icon' => 'fa fa-share',
+                        'label' => 'User / Group',
+                        'icon' => 'user-circle',
                         'url' => '#',
                         'items' => [
-                    ['label' => 'App. Route', 'icon' =>  'fa fa-circle-o', 'url' => ['/mimin/route/'],'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Role', 'icon' =>  'fa fa-circle-o', 'url' => ['/mimin/role/'],'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'User', 'icon' => ' fa fa-circle-o', 'url' => ['/mimin/user/'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'App. Route', 'icon' =>  'user', 'url' => ['/mimin/route/'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Role', 'icon' =>  'user', 'url' => ['/mimin/role/'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'User', 'icon' => 'user', 'url' => ['/mimin/user/'],'visible' => !Yii::$app->user->isGuest],
                    ]]
                         ,
                 ];     
@@ -21,7 +22,7 @@ $menuItems =
  if (Yii::$app->user->identity->username !== 'admin') 
 {
   $menuItems = Mimin::filterMenu($menuItems);
-};
+}
 }        
 ?>
 <aside class="main-sidebar">
