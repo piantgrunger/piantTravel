@@ -28,22 +28,46 @@
           </div>
             
                     
-                <div class="box box-solid">
+                <div class="panel box box-success">
             <div class="box-header with-border">
               <i class="fa fa-car"></i>
 
-              <h3 class="box-title">E-Rental</h3>
+              <h3 class="box-title">Profil Perusahaan</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <dl>
-                
-                <dt>Nama Perusahaan</dt>
+                <dl >          
+                <dt><i class="fa fa-building-o" aria-hidden="true"> </i>  Nama Perusahaan</dt>
                 <dd><?=$modelSetting->nama_perusahaan;?></dd>
-                <dt>Alamat</dt>
-                <dd><?=$modelSetting->alamat_perusahaan;?></dd>
                 
               </dl>
+                <dl >          
+                
+                <dt><i class="fa fa-home" aria-hidden="true"></i>  Alamat Perusahaan</dt>
+                <dd><?=$modelSetting->alamat_perusahaan;?></dd>
+              </dl>
+                <dl >          
+               
+                <dt><i class="fa fa-phone" aria-hidden="true"></i>  Telepon Perusahaan</dt>
+                <dd><?=$modelSetting->telp_perusahaan1;?> <?=$modelSetting->telp_perusahaan2;?></dd>
+              </dl>
+                <dl >          
+             
+                <dt><i class="fa fa-envelope-open" aria-hidden="true"></i>  Email Perusahaan</dt>
+                
+                <dd><?=$modelSetting->email_perusahaan;?></dd>
+              </dl>
+                <dl >          
+             
+                <dt><i class="fa fa-firefox" aria-hidden="true"></i>  Website Perusahaan</dt>
+                <dd><?=$modelSetting->website_perusahaan;?></dd>
+              </dl>
+             
+                
+              </dl>
+      
+                
+                
             </div>
             <!-- /.box-body -->
           </div>
