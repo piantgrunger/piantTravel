@@ -3,7 +3,7 @@ use hscstudio\mimin\components\Mimin;
 $menuItems =
         [
                     ['label' => 'Gii','options' => ['class' => 'treeview'] ,'icon' => 'fa fa-file-code-o', 'url' => ['/gii/'],'visible' => !Yii::$app->user->isGuest],
-            [
+                    [
                         'visible' => !Yii::$app->user->isGuest,
                         'label' => 'User / Group',
                         'icon' => 'user-circle',
@@ -24,6 +24,7 @@ $menuItems =
                         'items' => [
                     ['label' => 'Jns Kendaraan','options' => ['class' => 'treeview'] , 'icon' =>  'car', 'url' => ['/jnskendaraan/'],'visible' => !Yii::$app->user->isGuest],
               ['label' => 'Kendaraan','options' => ['class' => 'treeview'] , 'icon' =>  'taxi', 'url' => ['/kendaraan/'],'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Sopir','options' => ['class' => 'treeview'] , 'icon' =>  'drivers-license-o', 'url' => ['/sopir/'],'visible' => !Yii::$app->user->isGuest],
            
                    ]]
                         ,

@@ -32,7 +32,7 @@ class  m170925_075328_create_table_tb_m_kendaraan extends Migration
             'id_jns_kendaraan',
             'tb_m_jns_kendaraan',
             'id_jns_kendaraan',
-            'CASCADE',
+            'RESTRICT',
             'CASCADE'    
         );
 

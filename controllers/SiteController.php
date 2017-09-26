@@ -15,6 +15,7 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use app\models\Setting;
 use app\models\kendaraan;
+use app\models\sopir;
 
 class SiteController extends Controller
 {
@@ -76,9 +77,11 @@ class SiteController extends Controller
     
          $modelSetting =  Setting::findOne(1);
          $Jmlkendaraanready = kendaraan::find()->where("status='Ready'")->count();
+         $Jmlsopirready = sopir::find()->where("stat='Aktif'")->count();
           
           $model = new LoginForm();
-        return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting,'Jmlkendaraanready'=>$Jmlkendaraanready]);
+        return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting,'Jmlkendaraanready'=>$Jmlkendaraanready,
+            'Jmlsopirready'=>$Jmlsopirready]);
     }
 
     /**

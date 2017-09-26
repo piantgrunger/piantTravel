@@ -15,6 +15,7 @@ use yii\helpers\Html;
 
         <div class="row">
          <div class="col-md-6">
+              <div class="col-md-6">
              <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?=$Jmlkendaraanready;?></h3>
@@ -29,8 +30,27 @@ use yii\helpers\Html;
                  
                  <?php }?>
           </div>
-              
+                </div>  
+<div class="col-md-6">
+             
+             <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?=$Jmlsopirready;?></h3>
+
+              <p>Sopir Ready</p>
             </div>
+            <div class="icon">
+              <i class="fa fa-id-card-o"></i>
+            </div>
+            <?php if ((Mimin::checkRoute("/sopir/"))){ ?>         
+         <?=Html::a(Yii::t('app', 'Daftar Sopir'), ['/sopir/'], ['class' => 'small-box-footer']) ?> 
+                 
+                 <?php }?>
+          </div>
+              
+        </div>
+            </div>
+            
             <div class="col-md-6">
             
                     <div class="panel box box-primary">
