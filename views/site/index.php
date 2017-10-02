@@ -73,6 +73,7 @@ use yii\helpers\Html;
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+                    <div class="col-md-6">
                 <dl >          
                 <dt><i class="fa fa-building-o" aria-hidden="true"> </i>  Nama Perusahaan</dt>
                 <dd><?=$modelSetting->nama_perusahaan;?></dd>
@@ -102,7 +103,14 @@ use yii\helpers\Html;
              
                 
               </dl>
-      
+              </div>
+                    <div class="col-md-6">
+                        
+                  <?=Html::img( Yii::getAlias('@web')."/uploads/" . $modelSetting->logo_perusahaan,
+                          ['width'=>'100%','height'=>'100%'
+                      ]);?>
+               
+           </div>
                 
                 
             </div>

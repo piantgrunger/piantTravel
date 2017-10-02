@@ -8,6 +8,7 @@ use app\models\SettingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * SettingController implements the CRUD actions for Setting model.
@@ -46,10 +47,22 @@ class SettingController extends Controller
          * 
          */
           $model = $this->findModel(1);
+    if ($model->load(Yii::$app->request->post()))
+        {    
+            $picture = UploadedFile::getInstance($model,'logo_perusahaan' );
+            var_dump($picture);
+            $model->logo_perusahaan = $model->nama_perusahaan.'.'.$picture->extension;        
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if  ($model->save()) {
+             if (!is_null($picture)) 
+             {     
+                $picture->saveAs(Yii::$app->basePath .'/web/uploads/'.$model->logo_perusahaan);     
+             }   
+       
                         return $this->redirect(['index']);
-        } else {
+        }
+        }
+        else {
             return $this->render('update', [
                 'model' => $model,
             ]);
