@@ -30,6 +30,24 @@ use yii\helpers\Html;
                  
                  <?php }?>
           </div>
+          
+                     
+             <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?=$Jmlcustomerready;?></h3>
+
+              <p>Customer Aktif</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-id-card-o"></i>
+            </div>
+            <?php if ((Mimin::checkRoute("/sopir/"))){ ?>         
+         <?=Html::a(Yii::t('app', 'Daftar Customer'), ['/sopir/'], ['class' => 'small-box-footer']) ?> 
+                 
+                 <?php }?>
+          </div>
+                  
+                  
                 </div>  
 <div class="col-md-6">
              
