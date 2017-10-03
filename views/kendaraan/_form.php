@@ -13,6 +13,9 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
         <?= $form->errorSummary($model) ?> <!-- ADDED HERE -->
+                <div class="row">
+
+             <div class="col-sm-6">
 
     <?= $form->field($model, 'id_jns_kendaraan')->widget(Select2::classname(), [
     'data' => $browseArray,
@@ -28,6 +31,9 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'no_mesin_kendaraan')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'tahun_pembuatan')->textInput() ?>
+                 
+                    </div>
+    <div class="col-sm-6">
 
     <?= $form->field($model, 'merk_kendaraan')->textInput(['maxlength' => true]) ?>
 
@@ -36,9 +42,12 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'pemilik_kendaraan')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'kapasitas_penumpang')->textInput(['maxlength' => true]) ?>
+        
+          <?= $form->field($model, 'status')->dropDownList([ 'Ready' => 'Ready', 'Rusak' => 'Rusak','Keluar'=>'Keluar' ], ['prompt' => '']) ?>
 
 
-
+</div>
+   </div>
     <?= $form->field($model, 'ket')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">

@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use Faker\Factory;
 
 class m170925_072106_create_table_tb_m_jns_kendaraan extends Migration
 {
@@ -15,8 +16,35 @@ class m170925_072106_create_table_tb_m_jns_kendaraan extends Migration
             'updated_at'=>$this->datetime(),
             
         ]);
+        
+                $row=25;
+    $iterate=1;
+    $start = microtime(true);
+    $faker = Factory::create();
+    $datas = [];
+
+
+    for($j=1;$j<=$iterate;$j++){
+        for($i=1;$i<=$row;$i++){    
+            
+            $datas[$i]=[
+                     $faker->words(2,true),'',$faker->dateTimeThisCentury->format('Y-m-d'),$faker->dateTimeThisCentury->format('Y-m-d')
+                    
+                         
+                    ];
+        }   
+        $this->batchInsert(self::TABLE_NAME, [ 
+                 
+            'nama_jns_kendaraan'  ,
+            'ket' ,
+            'created_at',
+            'updated_at',], $datas);
+          $time_elapsed_us = microtime(true) - $start;
+    echo ($row*$iterate).' = '.$time_elapsed_us.' <br>';
     
 
+    }
+    
     }
 
     public function safeDown()

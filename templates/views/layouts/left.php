@@ -29,6 +29,8 @@ $menuItems =
                    ]]
                         ,
            
+                   ['label' => 'Customer','options' => ['class' => 'treeview'] , 'icon' =>  'user-o', 'url' => ['/customer/'],'visible' => !Yii::$app->user->isGuest],
+      
             
                 ];     
                 

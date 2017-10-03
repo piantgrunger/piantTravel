@@ -25,6 +25,16 @@ $config = [
 ],
     
     
+    'container' => [
+        'definitions' => [
+            'yii\widgets\LinkPager' => [
+                'firstPageLabel' => 'First',
+                'lastPageLabel'  => 'Last'
+            ]
+        ]
+    ],
+    
+    
    'modules' => [
         'datecontrol' =>  [
         'class' => 'kartik\datecontrol\Module',

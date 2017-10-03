@@ -16,6 +16,7 @@ use yii\web\BadRequestHttpException;
 use app\models\Setting;
 use app\models\kendaraan;
 use app\models\sopir;
+use app\models\customer;
 
 class SiteController extends Controller
 {
@@ -78,10 +79,11 @@ class SiteController extends Controller
          $modelSetting =  Setting::findOne(1);
          $Jmlkendaraanready = kendaraan::find()->where("status='Ready'")->count();
          $Jmlsopirready = sopir::find()->where("stat='Aktif'")->count();
-          
+         $Jmlcustomerready = customer::find()->where("stat='Aktif'")->count();
+                    
           $model = new LoginForm();
         return $this->render('index',['model'=>$model,'modelSetting'=>$modelSetting,'Jmlkendaraanready'=>$Jmlkendaraanready,
-            'Jmlsopirready'=>$Jmlsopirready]);
+            'Jmlsopirready'=>$Jmlsopirready,'Jmlcustomerready'=>$Jmlcustomerready]);
     }
 
     /**

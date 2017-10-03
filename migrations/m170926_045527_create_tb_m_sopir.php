@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use Faker\Factory;
 
 class m170926_045527_create_tb_m_sopir extends Migration
 {
@@ -28,7 +29,38 @@ class m170926_045527_create_tb_m_sopir extends Migration
             'updated_at'=>$this->datetime(),
             
         ]);
-      
+     $row=1000;
+    $iterate=1;
+    $start = microtime(true);
+    $faker = Factory::create();
+    $datas = [];
+    for($j=1;$j<=$iterate;$j++){
+        for($i=1;$i<=$row;$i++){                                     
+            $datas[$i]=[$faker->name,$faker->address,$faker->phoneNumber,$faker->creditCardNumber,'A',$faker->bankAccountNumber,$faker->dateTimeThisCentury->format('Y-m-d')
+                    ,'Aktif',rand(0,100),$faker->word,$faker->dateTimeThisCentury->format('Y-m-d'),$faker->dateTimeThisCentury->format('Y-m-d')
+                    ];
+        }   
+        $this->batchInsert(self::TABLE_NAME, [ 
+            'nama_sopir' ,
+            'alamat_sopir' ,
+            'telp_sopir',
+            'no_ktp'  ,
+            'jns_SIM',
+            'no_SIM' ,
+            'tgl_berlaku_SIM',
+            'stat' ,
+            'persentase' ,
+   
+            'ket',
+            'created_at',
+            'updated_at'], $datas);
+    }   
+     
+    $time_elapsed_us = microtime(true) - $start;
+    echo ($row*$iterate).' = '.$time_elapsed_us.' <br>';
+
+        
+        
     }
     public function safeDown()
     {

@@ -37,7 +37,7 @@ use yii\helpers\Html;
             <div class="inner">
               <h3><?=$Jmlsopirready;?></h3>
 
-              <p>Sopir Ready</p>
+              <p>Sopir Aktif</p>
             </div>
             <div class="icon">
               <i class="fa fa-id-card-o"></i>

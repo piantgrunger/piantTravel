@@ -6,16 +6,14 @@ use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax; use kartik\export\ExportMenu;
 $gridColumns=[['class' => 'yii\grid\SerialColumn'], 
-            'nama_jns_kendaraan',
-            'no_plat_kendaraan',
-            //'no_rangka_kendaraan',
-            //'no_mesin_kendaraan',
-            // 'tahun_pembuatan',
-             'merk_kendaraan',
-             'pabrikan_kendaraan',
-            // 'pemilik_kendaraan',
-             'kapasitas_penumpang',
-             'status',
+            'kode_customer',
+            'nama_customer',
+            'alamat_customer:ntext',
+            'telp_customer',
+            // 'telp2_customer',
+            // 'no_ktp',
+            // 'email_customer:email',
+            // 'stat',
             // 'ket:ntext',
             // 'created_at',
             // 'updated_at',
@@ -24,20 +22,19 @@ $gridColumns=[['class' => 'yii\grid\SerialColumn'],
               'update','delete','view'],$this->context->route),    ],    ]; echo ExportMenu::widget(['dataProvider' => $dataProvider,'columns' => $gridColumns]);
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\kendaraanSearch */
+/* @var $searchModel app\models\customersearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Daftar Kendaraan');
+$this->title = Yii::t('app', 'Daftar Customer');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="kendaraan-index">
+<div class="customer-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p> <?php if ((Mimin::checkRoute($this->context->id."/create"))){ ?>        <?= 
-        Html::a(Yii::t('app', 'Kendaraan  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
+    <p> <?php if ((Mimin::checkRoute($this->context->id."/create"))){ ?>        <?=  Html::a(Yii::t('app', 'Customer  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
     <?php } ?>    </p>
 
     <?= GridView::widget([
