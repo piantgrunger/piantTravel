@@ -39,10 +39,10 @@ use yii\helpers\Html;
               <p>Customer Aktif</p>
             </div>
             <div class="icon">
-              <i class="fa fa-id-card-o"></i>
+              <i class="fa fa-user-o"></i>
             </div>
-            <?php if ((Mimin::checkRoute("/sopir/"))){ ?>         
-         <?=Html::a(Yii::t('app', 'Daftar Customer'), ['/sopir/'], ['class' => 'small-box-footer']) ?> 
+            <?php if ((Mimin::checkRoute("/customer/"))){ ?>         
+         <?=Html::a(Yii::t('app', 'Daftar Customer'), ['/customer/'], ['class' => 'small-box-footer']) ?> 
                  
                  <?php }?>
           </div>
