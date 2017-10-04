@@ -30,7 +30,8 @@ $menuItems =
                         ,
            
                    ['label' => 'Customer','options' => ['class' => 'treeview'] , 'icon' =>  'user-o', 'url' => ['/customer/'],'visible' => !Yii::$app->user->isGuest],
-      
+                  ['label' => 'Paket','options' => ['class' => 'treeview'] , 'icon' =>  'money', 'url' => ['/paket/'],'visible' => !Yii::$app->user->isGuest],
+           
             
                 ];     
                 

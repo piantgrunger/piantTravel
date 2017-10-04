@@ -15,6 +15,7 @@ class kendaraanSearch extends kendaraan
     /**
      * @inheritdoc
      */
+    
     public function rules()
     {
         return [

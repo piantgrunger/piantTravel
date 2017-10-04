@@ -102,7 +102,15 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        
+           'formatter' => [
+              'class' => 'yii\i18n\formatter',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => '.',
+          
+       ],
          'i18n' => [
+          
         'translations' => [
             'app*' => [
                 'class' => 'yii\i18n\PhpMessageSource',
