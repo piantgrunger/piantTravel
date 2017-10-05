@@ -7,7 +7,8 @@ $menuItems =
                         'visible' => !Yii::$app->user->isGuest,
                         'label' => 'User / Group',
                         'icon' => 'user-circle',
-                        'url' => '#',
+                       
+                        'options' => ['class' => 'treeview' ,'data-target'=>"#"],
                         'items' => [
                     ['label' => 'App. Route','options' => ['class' => 'treeview' ,'data-target'=>"#" ,"data-toggle"=>"pill" ] , 'icon' =>  'user', 'url' => ['/mimin/route/'],'visible' => !Yii::$app->user->isGuest],
                     ['label' => 'Role','options' => ['class' => 'treeview' ,'data-target'=>"#" ,"data-toggle"=>"pill" ] , 'icon' =>  'user', 'url' => ['/mimin/role/'],'visible' => !Yii::$app->user->isGuest],
@@ -21,6 +22,7 @@ $menuItems =
                         'label' => 'Master',
                         'icon' => 'bus',
                         'url' => '#',
+                        'options' => ['class' => 'treeview' ,'data-target'=>"#"],
                         'items' => [
                     ['label' => 'Jns Kendaraan','options' => ['class' => 'treeview' ,'data-target'=>"#" ,"data-toggle"=>"pill" ] , 'icon' =>  'car', 'url' => ['/jnskendaraan/'],'visible' => !Yii::$app->user->isGuest],
               ['label' => 'Kendaraan','options' => ['class' => 'treeview' ,'data-target'=>"#" ,"data-toggle"=>"pill" ] , 'icon' =>  'taxi', 'url' => ['/kendaraan/'],'visible' => !Yii::$app->user->isGuest],
