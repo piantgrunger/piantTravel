@@ -66,7 +66,7 @@ class paket extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'safe'],
             [['kode_paket', 'nama_paket'], 'string', 'max' => 255],
             [['kode_paket'], 'unique'],
-            [['id_jns_kendaraan'], 'exist', 'skipOnError' => true, 'targetClass' => JnsKendaraan::className(), 'targetAttribute' => ['id_jns_kendaraan' => 'id_jns_kendaraan']],
+            [['id_jns_kendaraan'], 'exist', 'skipOnError' => true, 'targetClass' => jnskendaraan::className(), 'targetAttribute' => ['id_jns_kendaraan' => 'id_jns_kendaraan']],
         ];
     }
 
