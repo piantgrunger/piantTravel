@@ -24,7 +24,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama_paket') ?>
 
-    <?= $form->field($model, 'jenis_paket') ?>
+    <?= $form->field($model, 'jenis_paket')->
+            dropDownList([ 'Paket Sopir' => 'Paket Sopir', 'Paket Kendaraan' => 'Paket Kendaraan', ], ['prompt' => '']
+                    
+                    ) 
+             ?>
 
     <?= $form->field($model, 'id_jns_kendaraan') ?>
 

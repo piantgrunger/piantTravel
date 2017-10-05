@@ -61,15 +61,31 @@ class PaketController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreatePaketKendaraan()
     {
         $model = new paket();
+        $model->jenis_paket='Paket Kendaraan';
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id_paket]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+                'tipe' =>'kendaraan',
+            ]);
+        }
+    }
+     
+    public function actionCreatePaketSopir()
+    {
+        $model = new paket();
+        $model->jenis_paket='Paket Sopir';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_paket]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'tipe' =>'sopir',
             ]);
         }
     }
@@ -83,12 +99,14 @@ class PaketController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $tipe = str_replace('paket ', '', strtolower($model->jenis_paket));
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_paket]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'tipe' => $tipe
             ]);
         }
     }

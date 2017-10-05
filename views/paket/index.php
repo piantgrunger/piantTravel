@@ -34,8 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p> <?php if ((Mimin::checkRoute($this->context->id."/create"))){ ?>        <?=  Html::a(Yii::t('app', 'Paket  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
-    <?php } ?>    </p>
+    <p> <?php if ((Mimin::checkRoute($this->context->id."/create-paket-kendaraan"))){ ?> 
+       <?=  Html::a(Yii::t('app', 'Paket Kendaraan Baru'), ['create-paket-kendaraan'], ['class' => 'btn btn-success']) ?>
+    <?php } ?> 
+    
+    <?php if ((Mimin::checkRoute($this->context->id."/create-paket-sopir"))){ ?> 
+       <?=  Html::a(Yii::t('app', 'Paket Sopir Baru'), ['create-paket-sopir'], ['class' => 'btn btn-success']) ?>
+    <?php } ?> 
+    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

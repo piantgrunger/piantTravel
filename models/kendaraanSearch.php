@@ -15,6 +15,7 @@ class kendaraanSearch extends kendaraan
     /**
      * @inheritdoc
      */
+    public $nama_jns_kendaraan;
     
     public function rules()
     {

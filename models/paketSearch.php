@@ -12,6 +12,7 @@ use app\models\paket;
  */
 class paketSearch extends paket
 {
+        public $nama_jns_kendaraan;
     /**
      * @inheritdoc
      */
