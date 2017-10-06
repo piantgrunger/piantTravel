@@ -8,7 +8,10 @@ use yii\widgets\Pjax; use kartik\export\ExportMenu;
 $gridColumns=[['class' => 'yii\grid\SerialColumn'], 
             'kode_paket',
             'nama_paket',
-            'jenis_paket',
+             [
+                'attribute'=>'jenis_paket',
+                'filter'=>array("Paket Sopir"=>"Paket Sopir","Paket Kendaraan"=>"Paket Kendaraan")
+            ],
             'nama_jns_kendaraan',
             // 'jenis_biaya',
             // 'biaya_rp',

@@ -12,11 +12,9 @@ use yii\helpers\Html;
   
 
     <div class="body-content">
-
         <div class="row">
-         <div class="col-md-6">
-              <div class="col-md-6">
-             <div class="small-box bg-aqua">
+              <div class="col-md-3">
+               <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?=$Jmlkendaraanready;?></h3>
 
@@ -30,8 +28,10 @@ use yii\helpers\Html;
                  
                  <?php }?>
           </div>
-          
-                     
+                  
+         </div> 
+             <div class="col-md-3">
+        
              <div class="small-box bg-green">
             <div class="inner">
               <h3><?=$Jmlcustomerready;?></h3>
@@ -49,7 +49,7 @@ use yii\helpers\Html;
                   
                   
                 </div>  
-<div class="col-md-6">
+<div class="col-md-3">
              
              <div class="small-box bg-red">
             <div class="inner">
@@ -68,6 +68,13 @@ use yii\helpers\Html;
               
         </div>
             </div>
+   
+        
+        </div>
+        <div class="row">
+            
+            <div class="col-md-6">
+ </div>
             
             <div class="col-md-6">
             
