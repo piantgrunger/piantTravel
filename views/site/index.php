@@ -78,17 +78,7 @@ use yii\helpers\Html;
             
             <div class="col-md-6">
             
-                    <div class="panel box box-primary">
-        
-            <!-- /.box-header -->
-            <div class="box-body">
-             
-
-              <h3 class="box-title center"><i class="fa fa-calendar"> </i>  <?=Yii::t('app',Yii::$app->formatter->asDate('now', ' dd MMMM yyyy'));?></h3>     
-            </div>
-            <!-- /.box-body -->
-          </div>
-            
+     
                     
              <div class="panel box box-success">
             <div class="box-header with-border">
