@@ -13,7 +13,7 @@ use yii\helpers\Html;
 
     <div class="body-content">
         <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-4">
                <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?=$Jmlkendaraanready;?></h3>
@@ -30,7 +30,7 @@ use yii\helpers\Html;
           </div>
                   
          </div> 
-             <div class="col-md-3">
+             <div class="col-md-4">
         
              <div class="small-box bg-green">
             <div class="inner">
@@ -49,7 +49,7 @@ use yii\helpers\Html;
                   
                   
                 </div>  
-<div class="col-md-3">
+<div class="col-md-4">
              
              <div class="small-box bg-red">
             <div class="inner">
