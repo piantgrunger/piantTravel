@@ -7,6 +7,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 
 /**
@@ -84,5 +85,16 @@ class customer extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    public function getDataBrowseCustomer()
+    {        
+     return ArrayHelper::map(
+                     customer::find()
+                                        ->select([
+                                                'id_customer','ket_customer' => "concat(kode_customer,' - ',nama_customer)"
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_customer', 'ket_customer');
     }
 }

@@ -57,7 +57,7 @@ $config = [
         'displayTimezone' => 'Asia/Jakarta',
  
         // set your timezone for date saved to db
-        'saveTimezone' => 'UTC',
+        'saveTimezone' => 'Asia/Jakarta',
         
         // automatically use kartik\widgets for each of the above formats
         'autoWidget' => true,
