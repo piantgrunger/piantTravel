@@ -36,7 +36,9 @@
         "mdmsoft/yii2-captcha": "~1.0",
         "kartik-v/yii2-money": "*",
         "mdmsoft/yii2-autonumber": "~1.0",
-        "kartik-v/yii2-builder": "@dev"
+        "kartik-v/yii2-builder": "@dev",
+        "mdmsoft/yii2-ar-behaviors": "~1.0",
+        "mdmsoft/yii2-widgets": "^1.2"
     
     },
     "require-dev": {

@@ -8,6 +8,7 @@ use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use mdm\autonumber\NextValueValidator;
+use mdm\behaviors\ar\RelationTrait;
 
 
 /**
@@ -38,6 +39,8 @@ class sewa extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+     use RelationTrait;
+ 
 
 
     public function behaviors()
@@ -112,4 +115,21 @@ class sewa extends \yii\db\ActiveRecord
     {
         return $this->hasOne(customer::className(), ['id_customer' => 'id_customer']);
     }
+    public function getDetailSopir()
+    {
+        return $this->hasMany(d_sewa_sopir::className(), ['id_sewa' =>'id_sewa']);
+    }
+    public function getDetailKendaraan()
+    {
+        return $this->hasMany(d_sewa_kendaraan::className(), ['id_sewa' =>'id_sewa']);
+    }
+    public function setDetailSopir($value)
+    {
+        return $this->loadRelated('detailSopir',$value);
+    }
+    public function setDetailKendaraan($value)
+    {
+        return $this->loadRelated('detailKendaraan',$value);
+    }
 }
+

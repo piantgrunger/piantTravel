@@ -91,5 +91,12 @@ class d_sewa_kendaraan extends \yii\db\ActiveRecord
     public function getPaket()
     {
         return $this->hasOne(paket::className(), ['id_paket' => 'id_paket']);
+        
+        
+    }
+    
+        public function getSewa()
+    {
+        return $this->hasOne(sewa::className(), ['id_sewa' => 'id_sewa']);
     }
 }

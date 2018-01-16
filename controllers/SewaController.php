@@ -66,8 +66,6 @@ class SewaController extends Controller
     public function actionCreate()
     {
         $model = new sewa();
-        $model_dSopir=[new d_sewa_sopir()];
-        $model_dKendaraan=[new d_sewa_kendaraan()];
         
         $model->tgl_sewa=date('Y-m-d');
         $model->tgl_pemesanan=date('Y-m-d');
@@ -87,8 +85,6 @@ class SewaController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'model_dSopir' => $model_dSopir,
-                'model_dKendaraan' => $model_dKendaraan,
                 
                 
             ]);

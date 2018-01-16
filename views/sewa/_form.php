@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use app\models\customer;
 use kartik\datecontrol\DateControl;
+use mdm\widgets\GridInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\sewa */
@@ -57,8 +58,54 @@ use kartik\datecontrol\DateControl;
     </div>
     </div>
 
+    <div class="form-row">
+    <h3>Data Kendaraan</h3>
+   </div>
+    <div class="form-group">
+     
+    <?=
+    GridInput::widget([
+        'allModels' => $model->detailKendaraan,
+        'model' => \app\models\d_sewa_kendaraan::className(),
+        'form' => $form,
+        'columns' => [
+            ['class' => 'mdm\widgets\SerialColumn'],
+            'id_kendaraan',
+            'id_paket',
+            'sub_tot',
+            ['class' => 'mdm\widgets\ButtonColumn']
+        ],
+        'hiddens'=>[
+            'id_sewa'
+        ]
+    ])
+    ?>
+</div>
+<div class="form-row">
+    <h3>Data Sopir</h3>
+   </div>
+    <div class="form-group">
+     
+    <?=
+    GridInput::widget([
+        'allModels' => $model->detailSopir,
+        'model' => \app\models\d_sewa_sopir::className(),
+        'form' => $form,
+        'columns' => [
+            ['class' => 'mdm\widgets\SerialColumn'],
+            'id_sopir',
+            'id_paket',
+            'sub_tot',
+            ['class' => 'mdm\widgets\ButtonColumn']
+        ],
+        'hiddens'=>[
+            'id_sewa'
+        ]
+    ])
+    ?>
+</div>
 
-
+<div class="form-group">
 
     <?= $form->field($model, 'DP_rp')->textInput(['maxlength' => true]) ?>
 
@@ -75,5 +122,7 @@ use kartik\datecontrol\DateControl;
     </div>
 
     <?php ActiveForm::end(); ?>
+
+    <div class="form-group">
 
 </div>

@@ -4,9 +4,9 @@ namespace app\models;
 
 use Yii;
 
-use kartik\builder\TabularForm;
-use kartik\grid\GridView;
-use yii\helpers\ArrayHelper;
+
+
+
 
 
 /**
@@ -81,6 +81,12 @@ class d_sewa_sopir extends \yii\db\ActiveRecord
         return $this->hasOne(sopir::className(), ['id_sopir' => 'id_sopir']);
     }
     
+    public function getSewa()
+    {
+        return $this->hasOne(sewa::className(), ['id_sewa' => 'id_sewa']);
+    }
+    
+
 
 
 }
