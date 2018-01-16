@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use app\models\customer;
+use app\models\sopir;
+
+use app\models\jnskendaraan;
 use kartik\datecontrol\DateControl;
 use mdm\widgets\GridInput;
 
@@ -70,6 +73,9 @@ use mdm\widgets\GridInput;
         'form' => $form,
         'columns' => [
             ['class' => 'mdm\widgets\SerialColumn'],
+            ['attribute'=>'id_jns_kendaraan',
+             'items' => jnskendaraan::getDataBrowsejnskendaraan(),
+            ] ,
             'id_kendaraan',
             'id_paket',
             'sub_tot',
@@ -93,7 +99,9 @@ use mdm\widgets\GridInput;
         'form' => $form,
         'columns' => [
             ['class' => 'mdm\widgets\SerialColumn'],
-            'id_sopir',
+            ['attribute'=>'id_sopir',
+             'items' => sopir::getDataBrowsesopir(),
+            ] ,
             'id_paket',
             'sub_tot',
             ['class' => 'mdm\widgets\ButtonColumn']

@@ -7,6 +7,8 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
+
 
 
 /**
@@ -87,4 +89,17 @@ class sopir extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
+    public function getDataBrowsesopir()
+    {        
+     return ArrayHelper::map(
+                     sopir::find()
+                                        ->select([
+                                                'id_sopir','ket_sopir' => 'nama_sopir'
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_sopir', 'ket_sopir');
+    }
+
+
+
 }
