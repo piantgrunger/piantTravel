@@ -8,6 +8,7 @@ use app\models\sopir;
 
 use app\models\jnskendaraan;
 use kartik\datecontrol\DateControl;
+use mdm\widgets\TabularInput;
 use mdm\widgets\GridInput;
 
 /* @var $this yii\web\View */
@@ -66,26 +67,33 @@ use mdm\widgets\GridInput;
    </div>
     <div class="form-group">
      
-    <?=
-    GridInput::widget([
+    <table class="table">
+    <thead>
+        <tr>
+            
+            <th>Jenis Kendaraan</th>
+            <th>Kendaraan</th>
+            <th>Paket</th>
+            <th>Sub Total</th>
+            <th><a id="btn-add" href="#"><span class="glyphicon glyphicon-plus"></span></a></th>
+        </tr>
+    </thead>
+<?= 
+    TabularInput::widget([
+        'id' => 'detail-grid',
         'allModels' => $model->detailKendaraan,
         'model' => \app\models\d_sewa_kendaraan::className(),
+        'tag' => 'tbody',
         'form' => $form,
-        'columns' => [
-            ['class' => 'mdm\widgets\SerialColumn'],
-            ['attribute'=>'id_jns_kendaraan',
-             'items' => jnskendaraan::getDataBrowsejnskendaraan(),
-            ] ,
-            'id_kendaraan',
-            'id_paket',
-            'sub_tot',
-            ['class' => 'mdm\widgets\ButtonColumn']
-        ],
-        'hiddens'=>[
-            'id_sewa'
+        'itemOptions' => ['tag' => 'tr'],
+        'itemView' => '_item_detail_kendaraan',
+        'clientOptions' => [
+            'btnAddSelector' => '#btn-add',
         ]
-    ])
-    ?>
+    ]);
+?>
+</table>
+
 </div>
 <div class="form-row">
     <h3>Data Sopir</h3>

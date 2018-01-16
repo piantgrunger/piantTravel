@@ -20,7 +20,7 @@ use yii\db\Expression;
  * @property string $jenis_sewa
  * @property string $sub_tot
  *
- * @property TbMJnsKendaraan $jnsKendaraan
+ * @property TbMjnskendaraan $jnskendaraan
  * @property TbMKendaraan $kendaraan
  * @property TbMPaket $paket
  */
@@ -47,7 +47,7 @@ class d_sewa_kendaraan extends \yii\db\ActiveRecord
             [['id_sewa', 'id_jns_kendaraan', 'id_kendaraan', 'id_paket'], 'integer'],
             [['jenis_sewa'], 'string'],
             [['sub_tot'], 'number'],
-            [['id_jns_kendaraan'], 'exist', 'skipOnError' => true, 'targetClass' => jnsKendaraan::className(), 'targetAttribute' => ['id_jns_kendaraan' => 'id_jns_kendaraan']],
+            [['id_jns_kendaraan'], 'exist', 'skipOnError' => true, 'targetClass' => jnskendaraan::className(), 'targetAttribute' => ['id_jns_kendaraan' => 'id_jns_kendaraan']],
             [['id_kendaraan'], 'exist', 'skipOnError' => true, 'targetClass' => kendaraan::className(), 'targetAttribute' => ['id_kendaraan' => 'id_kendaraan']],
             [['id_paket'], 'exist', 'skipOnError' => true, 'targetClass' => paket::className(), 'targetAttribute' => ['id_paket' => 'id_paket']],
         ];
@@ -72,9 +72,9 @@ class d_sewa_kendaraan extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getJnsKendaraan()
+    public function getjnskendaraan()
     {
-        return $this->hasOne(jnsKendaraan::className(), ['id_jns_kendaraan' => 'id_jns_kendaraan']);
+        return $this->hasOne(jnskendaraan::className(), ['id_jns_kendaraan' => 'id_jns_kendaraan']);
     }
 
     /**
