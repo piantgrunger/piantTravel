@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use mdm\autonumber\NextValueValidator;
 use mdm\behaviors\ar\RelationTrait;
+use yii\helpers\Json;
 
 
 /**

@@ -7,6 +7,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\Json;
 
 
 /**
@@ -112,5 +113,23 @@ class kendaraan extends \yii\db\ActiveRecord
         {
             return '';
         }    
-    }        
+    }    
+    
+    public function getDataKendaraan($id_jns_kendaraan)
+    {        
+          $out=[];
+            $data=kendaraan::find()
+                    ->select([
+                'id'=>'id_kendaraan','name'=>'concat(merk_kendaraan," - ",no_plat_kendaraan)'
+                ])
+                ->where(['id_jns_kendaraan'=>$id_jns_kendaraan])
+                ->asArray()      
+                ->all();
+            foreach ($data as $i => $list) 
+            {
+                $out[] = ['id' => $list['id'], 'name' => $list['name']];
+            }
+            return $out;  
+    }
+   
 }

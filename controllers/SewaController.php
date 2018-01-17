@@ -5,12 +5,17 @@ namespace app\controllers;
 use Yii;
 use app\models\sewa;
 use app\models\sewaSearch;
+use app\models\kendaraan;
+use app\models\paket;
+
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\d_sewa_kendaraan;
 use app\models\d_sewa_sopir;
 
+use yii\helpers\Json;
 /**
  * SewaController implements the CRUD actions for sewa model.
  */
@@ -108,6 +113,41 @@ class SewaController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionKendaraan()
+    {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $id_jns = $_POST['depdrop_parents'];
+                $out = Kendaraan::getDataKendaraan($id_jns); 
+                // the getDefaultSubCat function will query the database
+                // and return the default sub cat for the cat_id
+                
+                echo Json::encode(['output'=>$out, 'selected'=>'']);
+                return;
+        }
+        echo Json::encode(['output'=>'', 'selected'=>'']);
+        
+
+    }
+
+
+    public function actionPaket()
+    {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $id_jns = $_POST['depdrop_parents'];
+                $out = Paket::getDataPaket($id_jns); 
+                // the getDefaultSubCat function will query the database
+                // and return the default sub cat for the cat_id
+                
+                echo Json::encode(['output'=>$out, 'selected'=>'']);
+                return;
+        }
+        echo Json::encode(['output'=>'', 'selected'=>'']);
+        
+
     }
 
     /**

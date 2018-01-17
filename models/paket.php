@@ -108,5 +108,22 @@ class paket extends \yii\db\ActiveRecord
         {
             return '';
         }    
-    }        
+    }      
+    public function getDataPaket($id_jns_kendaraan)
+    {        
+          $out=[];
+            $data=Paket::find()
+                    ->select([
+                'id'=>'id_paket','name'=>'concat(kode_paket," - ",nama_paket)'
+                ])
+                ->where(['id_jns_kendaraan'=>$id_jns_kendaraan])
+                ->asArray()      
+                ->all();
+            foreach ($data as $i => $list) 
+            {
+                $out[] = ['id' => $list['id'], 'name' => $list['name']];
+            }
+            return $out;  
+    }
+     
 }
