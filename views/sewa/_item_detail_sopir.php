@@ -17,7 +17,7 @@ use yii\helpers\Url;
 
 <td><?= $form->field($model,"[$key]id_paket")->widget(DepDrop::classname(), [
     'type'=>DepDrop::TYPE_SELECT2,
-    'data'=> [$model->id_paket=>is_null($model->paket)?"":$model->paket->nama_Paket],
+    'data'=> [$model->id_paket=>is_null($model->paket)?"":$model->paket->nama_paket],
     'options'=>[ 'placeholder'=>'Pilih Paket ...'],
     'select2Options'=>['pluginOptions'=>['allowClear'=>true]],
     'pluginOptions'=>[

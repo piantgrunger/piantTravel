@@ -1,7 +1,8 @@
 <?php
 
 namespace app\models;
-
+use yii\db\ActiveRecord;
+use yii\behaviors\AttributeBehavior;
 use Yii;
 
 
@@ -19,6 +20,7 @@ use Yii;
  * @property string $jenis_sewa
  * @property string $sub_tot
  *
+ * 
  * @property TbMPaket $paket
  * @property TbMSopir $sopir
  */
@@ -28,7 +30,22 @@ class d_sewa_sopir extends \yii\db\ActiveRecord
      * @inheritdoc
      */
 
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['jenis_sewa'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['jenis_sewa'],
+                ],
+                'value' => function ($event) {
+                    return is_null($this->paket)?null: $this->paket->jenis_biaya;
+                },
+            ],
+        ];
+    }
+   
   
     public static function tableName()
     {
@@ -41,10 +58,12 @@ class d_sewa_sopir extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_sewa', 'id_sopir', 'id_paket', 'jenis_sewa', 'sub_tot'], 'required'],
-            [['id_sewa', 'id_sopir', 'id_paket'], 'integer'],
+            [[ 'id_sopir', 'id_paket', 'sub_tot'], 'required'],
+            [['id_sopir', 'id_paket'], 'integer'],
             [['jenis_sewa'], 'string'],
             [['sub_tot'], 'number'],
+            [['id_sewa','jenis_sewa'],'safe'],
+            
             [['id_paket'], 'exist', 'skipOnError' => true, 'targetClass' => paket::className(), 'targetAttribute' => ['id_paket' => 'id_paket']],
             [['id_sopir'], 'exist', 'skipOnError' => true, 'targetClass' => sopir::className(), 'targetAttribute' => ['id_sopir' => 'id_sopir']],
         ];

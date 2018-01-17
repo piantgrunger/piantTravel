@@ -74,6 +74,7 @@ use mdm\widgets\GridInput;
             <th>Jenis Kendaraan</th>
             <th>Kendaraan</th>
             <th>Paket</th>
+            
             <th>Sub Total</th>
             <th><a id="btn-add" href="#"><span class="glyphicon glyphicon-plus"></span></a></th>
         </tr>

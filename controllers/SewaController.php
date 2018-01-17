@@ -85,8 +85,23 @@ class SewaController extends Controller
         
         
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_sewa]);
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $transaction = Yii::$app->db->beginTransaction();
+            try {
+                $model->detailKendaraan = Yii::$app->request->post('d_sewa_kendaraan', []);
+                $model->detailSopir = Yii::$app->request->post('d_sewa_sopir', []);
+             
+                if ($model->save()) {
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $model->id_sewa]);
+                }
+                $transaction->rollBack();
+            } catch (\Exception $ecx) {
+                $transaction->rollBack();
+                throw $ecx;
+            }
+     
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -106,8 +121,25 @@ class SewaController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_sewa]);
+        
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $transaction = Yii::$app->db->beginTransaction();
+            try {
+                $model->detailKendaraan = Yii::$app->request->post('d_sewa_kendaraan', []);
+                $model->detailSopir = Yii::$app->request->post('d_sewa_sopir', []);
+                 
+                if ($model->save()) {
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $model->id_sewa]);
+                }
+              
+                $transaction->rollBack();
+            } catch (\Exception $ecx) {
+                $transaction->rollBack();
+                throw $ecx;
+            }
+     
         } else {
             return $this->render('update', [
                 'model' => $model,
