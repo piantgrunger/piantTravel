@@ -100,25 +100,32 @@ use mdm\widgets\GridInput;
    </div>
     <div class="form-group">
      
-    <?=
-    GridInput::widget([
+    <table class="table">
+    <thead>
+        <tr>
+            
+            <th>Nama Sopir</th>
+            <th>Paket</th>
+            <th>Sub Total</th>
+            <th><a id="btn-add1" href="#"><span class="glyphicon glyphicon-plus"></span></a></th>
+        </tr>
+    </thead>
+<?= 
+    TabularInput::widget([
+        'id' => 'detail-grid1',
         'allModels' => $model->detailSopir,
         'model' => \app\models\d_sewa_sopir::className(),
+        'tag' => 'tbody',
         'form' => $form,
-        'columns' => [
-            ['class' => 'mdm\widgets\SerialColumn'],
-            ['attribute'=>'id_sopir',
-             'items' => sopir::getDataBrowsesopir(),
-            ] ,
-            'id_paket',
-            'sub_tot',
-            ['class' => 'mdm\widgets\ButtonColumn']
-        ],
-        'hiddens'=>[
-            'id_sewa'
+        'itemOptions' => ['tag' => 'tr'],
+        'itemView' => '_item_detail_sopir',
+        'clientOptions' => [
+            'btnAddSelector' => '#btn-add1',
         ]
-    ])
-    ?>
+    ]);
+?>
+</table>
+
 </div>
 
 <div class="form-group">
